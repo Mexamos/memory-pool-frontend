@@ -11,4 +11,11 @@ export default {
 </script>
 
 <style>
+body {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
 </style>
