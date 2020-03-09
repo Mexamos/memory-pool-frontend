@@ -13,6 +13,13 @@ export default {
 <style>
 body {
   font-size: 14px;
+  font-family: 'Arial';
+}
+textarea, input {
+  font-family: 'Arial';
+}
+textarea {
+  resize: none;
 }
 a {
   text-decoration: none;

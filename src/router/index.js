@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Note from '@/components/Note'
+import NotePage from '@/components/NotePage'
 
 Vue.use(Router)
 
@@ -15,7 +15,12 @@ export default new Router({
     {
       path: '/:note_id',
       name: 'note',
-      component: Note
+      component: NotePage
+    },
+    {
+      path: '/new_note',
+      name: 'new_note',
+      component: NotePage
     },
   ]
 })

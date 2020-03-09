@@ -1,18 +1,24 @@
 <template>
   <div class="note-card-wrapper">
-    <router-link :to="{ name: 'note', params: { note_id: note.id }}">
+    
       <div class="note-header">
+        <router-link :to="{ name: 'note', params: { note_id: note.id }}">
         <div class="note-title" v-if="note.title">
           {{ note.title }}
+        </div>
+        </router-link>
+
+        <div class="delete-button" @click="deleteNote">
+          x
         </div>
       </div>
 
       <div class="note-body-wrapper">
-        <div class="note-body" v-if="note.body">
-          {{ note.body }}
+        <div class="note-body" v-if="note.text">
+          {{ note.text }}
         </div>
       </div>
-    </router-link>
+    
   </div>
 </template>
 
@@ -21,7 +27,12 @@ export default {
   name: 'NoteCard',
   props: [
     'note'
-  ]
+  ],
+  methods: {
+    deleteNote () {
+      this.$emit('delete-note', this.note)
+    }
+  }
 }
 </script>
 
@@ -32,13 +43,27 @@ export default {
   border-radius: 3px;
   margin: 0 10px 20px 0;
   max-width: 300px;
-  cursor: pointer;
+  min-width: 200px;
+  min-height: 200px;;
 
   .note-header {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 
     .note-title {
       font-size: 16px;
+      cursor: pointer;
+    }
+    .delete-button {
+      width: 18px;
+      height: 18px;
+      border: 1px solid;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
     }
   }
 }
